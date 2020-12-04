@@ -3,6 +3,7 @@ import Tabs from "./components/Tabs";
 import Current from "./components/Current";
 import Past from "./components/Past";
 import Next from "./components/Next";
+import Trivia from "./components/Trivia";
 
 import './App.css';
 
@@ -19,6 +20,9 @@ function App() {
         </div>
         <div label="Next Up">
           <Next />
+        </div>
+        <div label="Trivia">
+          <Trivia />
         </div>
       </Tabs>
     </div>
