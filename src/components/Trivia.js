@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 
 import { loadQuestion } from '../store/triviaReducer';
 
+var stringSimilarity = require('string-similarity');
 
 function Trivia(props) {
 
@@ -54,12 +55,17 @@ function Trivia(props) {
   
   const handleSubmit = e => {
     e.preventDefault();
-    alert(`You guessed ${triviaGuess.current.value}.  The correct answer is ${thisAnswer}`);
+    let similarity = Math.round(stringSimilarity.compareTwoStrings(triviaGuess.current.value, thisAnswer) * 100);
+    alert(`You guessed ${triviaGuess.current.value}.  The correct answer is ${thisAnswer}.  You were ${similarity}% correct`);
+    e.target.reset();
     newIndex();
   }
-  
-  
-  
+    
+  const handleSkip = e => {
+    indexesSeen.pop();
+    newIndex();
+  }
+
   if(inGame){
     
     return(
@@ -78,8 +84,10 @@ function Trivia(props) {
         <input type="submit" value="Final Answer" />
       </label>
     </form>
+    <button onClick={() => handleSkip()}>Skip This Question</button>
+
     <p>This Questions Index: {currentIndex}</p>
-    <p>Asked So Far: {indexesSeen}</p>
+    {/* <p>Asked So Far: {indexesSeen}</p> */}
 
     </>
   )
