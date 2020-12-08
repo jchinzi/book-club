@@ -12,6 +12,9 @@ function App() {
     <div>
       <h1>Book Club</h1>
       <Tabs>
+        <div label="Trivia">
+          <Trivia />
+        </div>
         <div label="Current Read">
           <Current />
         </div>
@@ -20,9 +23,6 @@ function App() {
         </div>
         <div label="Next Up">
           <Next />
-        </div>
-        <div label="Trivia">
-          <Trivia />
         </div>
       </Tabs>
     </div>
