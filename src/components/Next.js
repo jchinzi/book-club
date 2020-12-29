@@ -1,6 +1,15 @@
-import React from 'react'
+import React, {useEffect} from 'react';
+import { connect } from 'react-redux';
 
-const Next = props => {
+// Import Reducer
+
+import { loadMembers } from '../store/nextReducer';
+
+function Next(props) {
+  
+  useEffect(() => {
+    props.loadMembers();
+  },[])
 
   return(
     <div>
@@ -11,4 +20,14 @@ const Next = props => {
   )
 }
 
-export default Next;
+const mapStateToProps = state => {
+  return {
+    
+  }
+}
+
+const mapDispatchToProps = {
+  loadMembers
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Next);

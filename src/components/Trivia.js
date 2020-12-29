@@ -40,7 +40,7 @@ function Trivia(props) {
       index = Math.round(Math.random()*maxLength);
     }
     indexesSeen.push(index);
-    console.log(indexesSeen);
+    // console.log(indexesSeen);
     setCurrentIndex(indexesSeen[indexesSeen.length-1]);
   } 
   

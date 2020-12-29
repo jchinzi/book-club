@@ -4,10 +4,12 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 
 // Reducers
 
-import triviaQuestions from './triviaReducer'
+import triviaQuestions from './triviaReducer';
+import members from './nextReducer';
 
 let reducers = combineReducers({
-  triviaQuestions
+  triviaQuestions,
+  members
 });
 
 // End of Reducers
